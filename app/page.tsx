@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ReleaseCard from "@/components/ReleaseCard";
+import Image from "next/image";
+import styles from "./page.module.css";
 
 interface Release {
   version: string;
@@ -33,30 +34,117 @@ export default function Home() {
     }
   };
 
+  const latestRelease = [...releases].sort((a, b) => {
+    return new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime();
+  })[0];
+
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>♻️ RecycLens</h1>
-        <p style={styles.subtitle}>
-          Download the latest version of RecycLens
-        </p>
+    <div className={styles.container}>
+      <header className={styles.headerWrap}>
+        <div className={styles.headerPattern} aria-hidden="true" />
+        <div className={styles.header}>
+          <div className={styles.brand}>
+            <Image
+              src="/icon.png"
+              alt="RecycLens"
+              width={56}
+              height={56}
+              priority
+              className={styles.icon}
+            />
+            <h1 className={styles.title}>RecycLens</h1>
+          </div>
+          <p className={styles.subtitle}>
+            Take photos of trash. The app tells you if it goes in the green or blue bin. Learn by playing!
+          </p>
+          <div className={styles.ctaRow}>
+            {latestRelease ? (
+              <a href={latestRelease.downloadUrl} className={styles.primaryButton} download>
+                Download Latest APK
+              </a>
+            ) : (
+              <button className={styles.primaryButton} disabled>
+                Download Latest APK
+              </button>
+            )}
+            {latestRelease && (
+              <p className={styles.latestMeta}>
+                v{latestRelease.version} • {latestRelease.fileSize} • Released {latestRelease.releaseDate}
+              </p>
+            )}
+          </div>
+        </div>
       </header>
 
-      <main style={styles.main}>
-        {loading ? (
-          <p style={styles.loading}>Loading releases...</p>
-        ) : releases.length > 0 ? (
-          <div style={styles.grid}>
-            {releases.map((release) => (
-              <ReleaseCard key={release.version} release={release} />
-            ))}
+      <main className={styles.main}>
+        <section className={styles.appSection}>
+          <h2 className={styles.sectionTitle}>What is RecycLens?</h2>
+          <div className={styles.contentCard}>
+            <p className={styles.bodyText}>
+              RecycLens is a game that teaches you how to sort trash the right way.
+            </p>
+            <p className={styles.bodyText}>
+              Point your phone camera at trash, and the app shows you where it belongs. Collect points as you learn!
+            </p>
           </div>
-        ) : (
-          <p style={styles.empty}>No releases available yet.</p>
-        )}
+        </section>
+
+        <section className={styles.appSection}>
+          <h2 className={styles.sectionTitle}>How It Works</h2>
+          <div className={styles.featureGrid}>
+            <article className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>📸 Take a Picture</h3>
+              <p className={styles.featureText}>
+                Show RecycLens what kind of trash it is.
+              </p>
+            </article>
+            <article className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>🗑️ Pick the Right Bin</h3>
+              <p className={styles.featureText}>
+                RecycLens tells you if it goes in green or blue.
+              </p>
+            </article>
+            <article className={styles.featureCard}>
+              <h3 className={styles.featureTitle}>🎮 Earn Points!</h3>
+              <p className={styles.featureText}>
+                Play games, learn, and get rewards!
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section className={styles.appSection}>
+          <h2 className={styles.sectionTitle}>Why This App?</h2>
+          <div className={styles.contentCard}>
+            <ul className={styles.objectiveList}>
+              <li>See what trash is just by taking a photo.</li>
+              <li>Learn why some things go in green bins and others in blue bins.</li>
+              <li>Have fun while you learn about helping the planet!</li>
+              <li>Use the app in English or Filipino — pick your language.</li>
+              <li>Play different levels: Easy, Medium, or Hard.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className={styles.latestSection}>
+          <h2 className={styles.sectionTitle}>Download Now</h2>
+          {loading ? (
+            <p className={styles.message}>Loading latest build...</p>
+          ) : latestRelease ? (
+            <div className={styles.latestCard}>
+              <h3 className={styles.latestTitle}>{latestRelease.name}</h3>
+              <p className={styles.latestDescription}>{latestRelease.changelog}</p>
+              <a href={latestRelease.downloadUrl} download className={styles.primaryButton}>
+                Download v{latestRelease.version}
+              </a>
+            </div>
+          ) : (
+            <p className={styles.message}>No releases available yet.</p>
+          )}
+        </section>
       </main>
 
-      <footer style={styles.footer}>
+      <footer className={styles.footer}>
         <p>© 2026 RecycLens. All rights reserved.</p>
       </footer>
     </div>
@@ -74,56 +162,3 @@ const mockReleases: Release[] = [
       "Initial release of RecycLens with waste classification features",
   },
 ];
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column" as const,
-    backgroundColor: "#f5f5f5",
-  },
-  header: {
-    backgroundColor: "#2d5016",
-    color: "white",
-    padding: "40px 20px",
-    textAlign: "center" as const,
-  },
-  title: {
-    margin: "0 0 10px 0",
-    fontSize: "2.5em",
-  },
-  subtitle: {
-    margin: "0",
-    fontSize: "1.1em",
-    opacity: 0.9,
-  },
-  main: {
-    flex: 1,
-    padding: "40px 20px",
-    maxWidth: "1200px",
-    margin: "0 auto",
-    width: "100%",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-    gap: "20px",
-  },
-  loading: {
-    textAlign: "center" as const,
-    fontSize: "1.1em",
-    color: "#666",
-  },
-  empty: {
-    textAlign: "center" as const,
-    fontSize: "1.1em",
-    color: "#999",
-  },
-  footer: {
-    backgroundColor: "#333",
-    color: "white",
-    textAlign: "center" as const,
-    padding: "20px",
-    marginTop: "40px",
-  },
-};

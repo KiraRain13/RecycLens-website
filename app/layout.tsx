@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "RecycLens - Download Releases",
   description: "Download the latest RecycLens APK releases",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/icon.png",
   },
 };
 
@@ -14,10 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
-        {children}
-      </body>
+    <html lang="en" suppressHydrationWarning>
+      <body>{children}</body>
     </html>
   );
 }

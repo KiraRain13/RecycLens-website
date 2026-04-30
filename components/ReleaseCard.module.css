@@ -1,0 +1,84 @@
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(15, 23, 32, 0.08);
+}
+
+.header {
+  padding: 18px 18px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.version {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.badge {
+  background: rgba(31, 138, 76, 0.1);
+  color: var(--brand);
+  border: 1px solid rgba(31, 138, 76, 0.2);
+  font-size: 0.78rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.body {
+  padding: 16px 18px;
+}
+
+.meta {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.changelog {
+  margin: 12px 0 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f4faf6;
+  border: 1px solid #ddefe4;
+}
+
+.changelogTitle {
+  margin: 0 0 6px;
+  color: #246443;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.changelogText {
+  margin: 0;
+  color: #28443a;
+  line-height: 1.45;
+  font-size: 0.9rem;
+}
+
+.footer {
+  padding: 0 18px 18px;
+}
+
+.button {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 11px 14px;
+  box-shadow: 0 8px 24px var(--ring);
+}

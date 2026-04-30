@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Rodin Bokutoh';
+  src: url('/rodin_bokutoh.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --bg: #f5f8f7;
+  --card: #ffffff;
+  --text: #0f1720;
+  --muted: #5c6a73;
+  --line: #e7eef1;
+  --brand: #1f8a4c;
+  --brand-2: #0ea55a;
+  --ring: rgba(31, 138, 76, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top right, #e8f7ee 0, #f5f8f7 45%, #f5f8f7 100%);
+  color: var(--text);
+  font-family: 'Rodin Bokutoh', Roboto, system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+a {
+  color: inherit;
+}
