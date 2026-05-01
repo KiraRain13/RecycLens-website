@@ -114,6 +114,57 @@ export default function Home() {
         </section>
 
         <section className={styles.appSection}>
+          <h2 className={styles.sectionTitle}>Screenshots</h2>
+          <div className={styles.screenshotGrid}>
+            <div className={styles.screenshotCard}>
+              <Image
+                src="/screenshots/screenshot1.png"
+                alt="RecycLens App Screenshot 1"
+                width={240}
+                height={480}
+                className={styles.screenshot}
+              />
+            </div>
+            <div className={styles.screenshotCard}>
+              <Image
+                src="/screenshots/screenshot2.png"
+                alt="RecycLens App Screenshot 2"
+                width={240}
+                height={480}
+                className={styles.screenshot}
+              />
+            </div>
+            <div className={styles.screenshotCard}>
+              <Image
+                src="/screenshots/screenshot3.png"
+                alt="RecycLens App Screenshot 3"
+                width={240}
+                height={480}
+                className={styles.screenshot}
+              />
+            </div>
+            <div className={styles.screenshotCard}>
+              <Image
+                src="/screenshots/screenshot4.png"
+                alt="RecycLens App Screenshot 4"
+                width={240}
+                height={480}
+                className={styles.screenshot}
+              />
+            </div>
+            <div className={styles.screenshotCard}>
+              <Image
+                src="/screenshots/screenshot5.png"
+                alt="RecycLens App Screenshot 5"
+                width={240}
+                height={480}
+                className={styles.screenshot}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.appSection}>
           <h2 className={styles.sectionTitle}>Why This App?</h2>
           <div className={styles.contentCard}>
             <ul className={styles.objectiveList}>

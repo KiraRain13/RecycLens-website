@@ -204,6 +204,31 @@
   line-height: 1.45;
 }
 
+.screenshotGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.screenshotCard {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 7px 24px rgba(15, 23, 32, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screenshotCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15, 23, 32, 0.2);
+}
+
+.screenshot {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 .objectiveList {
   margin: 0;
   padding-left: 20px;
