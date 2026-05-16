@@ -207,7 +207,7 @@ const mockReleases: Release[] = [
     version: "1.0.0",
     name: "Initial Release",
     downloadUrl: "#",
-    releaseDate: "2026-04-27",
+    releaseDate: "2026-04-19",
     fileSize: "45.2 MB",
     changelog:
       "Initial release of RecycLens with waste classification features",

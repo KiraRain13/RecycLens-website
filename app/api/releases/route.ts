@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
       version: "1.0.0",
       name: "RecycLens v1.0 - Initial Release",
       downloadUrl: "/downloads/recyc-lens-1.0.0.apk",
-      releaseDate: "2026-04-27",
+      releaseDate: "2026-04-19",
       fileSize: "45.2 MB",
       changelog:
         "Initial release featuring waste classification using AI/ML, bilingual support (English & Filipino), and real-time scanning capabilities.",

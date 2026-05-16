@@ -75,7 +75,7 @@ Returns available APK releases in JSON format:
       "version": "1.0.0",
       "name": "RecycLens v1.0",
       "downloadUrl": "/downloads/recyc-lens-1.0.0.apk",
-      "releaseDate": "2026-04-27",
+      "releaseDate": "2026-04-19",
       "fileSize": "45.2 MB",
       "changelog": "..."
     }
